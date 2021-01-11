@@ -1,0 +1,103 @@
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+
+  <mat-card class="paper">
+
+    <mat-card-header>
+    <mat-card-title style="font-size: 30px;">Moji Zavrseni Pregledi</mat-card-title>
+    </mat-card-header>
+    <hr>
+
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="search" placeholder="Search" (input)="Search()">
+      </mat-form-field>
+      <hr>
+      
+      <table mat-table (matSortChange)="sortData($event)" [dataSource]="sortedData" style="padding-left: 35px;" matSort class="mat-elevation-z2" *ngIf="imaKarton">
+
+        <ng-container matColumnDef="termin">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 35px;"> Termin </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 35px;">{{element.termin.datum}} </td>
+        </ng-container>  
+        
+        <ng-container matColumnDef="firstname">
+
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 35px;"> Ime Lekara </th>
+            <td mat-cell *matCellDef="let element" style="padding-left: 35px;">{{element.lekar.user.firstname}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="lastname">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 35px;"> Prezime Lekara </th>
+            <td mat-cell *matCellDef="let element" style="padding-left: 35px;">{{element.lekar.user.lastname}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="specijalizacija">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 35px;"> Specijalizacija Lekara </th>
+            <td mat-cell *matCellDef="let element" style="padding-left: 35px;">{{element.lekar.specijalizacija}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="prosecnaocena">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 0px;"> Ocena Lekara </th>
+              <td mat-cell *matCellDef="let element" style="padding-left: 0px;"> <app-lekar-rating [ocena]='element.lekar.prosecnaocena' [lekarId]='element.lekar.id' (odabranaOcena)='ratingComponentClick($event)'></app-lekar-rating> </td>
+          </ng-container>
+
+          <ng-container matColumnDef="klinika">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 0px;"> Ocena Klinike </th>
+            <td mat-cell *matCellDef="let element" style="padding-left: 0px;"> <app-klinika-rating [ocenaKlinika]='element.lekar.klinika.ocenaklinike' [klinikaId]='element.lekar.klinika.id' (odabranaOcena)='ratingComponentClickKlinike($event)'></app-klinika-rating> </td>
+        </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
+
+<!--
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+
+  <mat-card class="paper">
+    <mat-card-header>
+      <mat-card-title style="font-size: 30px;" matTooltip="Ovo mozete samo jedno uciniti!">Ocenite Vase neocenjene Lekare</mat-card-title>
+    </mat-card-header>
+    <hr>
+    <mat-card-content>
+
+      <div class='container'>
+        <div class="panel panel-primary">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Ime Lekara</th>
+                  <th>Prezime Lekara</th>
+                  <th>Ocena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let lekar of lekariOcene">
+                  <td>
+                    {{lekar.user.firstname}}
+                  </td>
+                  <td>
+                    {{lekar.user.firstname}}
+                  </td>
+                  <td>
+                    <app-lekar-rating [ocena]='lekar.prosecnaocena' [lekarId]='lekar.id' (odabranaOcena)='ratingComponentClick($event)'></app-lekar-rating>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>
+-->

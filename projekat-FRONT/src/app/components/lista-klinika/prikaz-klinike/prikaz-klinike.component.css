@@ -1,0 +1,11 @@
+  table {
+    width: 100%;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .example-custom-date-class {
+    background: orange;
+    border-radius: 100%;
+  }

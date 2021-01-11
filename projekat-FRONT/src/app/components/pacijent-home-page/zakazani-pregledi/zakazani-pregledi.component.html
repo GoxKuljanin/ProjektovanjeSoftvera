@@ -1,0 +1,56 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+    
+  <mat-card class="paper">
+      <mat-card-header>
+          <mat-card-title style="font-size: 30px;">Moji Zakazani Pregledi</mat-card-title>
+      </mat-card-header>
+      <hr>
+      
+      <mat-card-content>
+          <mat-form-field>
+              <input matInput type="text" [(ngModel)]="search" placeholder="Search" (input)="Search()">
+          </mat-form-field>
+          <hr>
+          <table mat-table (matSortChange)="sortData($event)" [dataSource]="sortedData" matSort class="mat-elevation-z2">
+
+              <ng-container matColumnDef="datum">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;"> Datum </th>
+                  <td mat-cell *matCellDef="let element" style="padding-left: 5px;">{{element.termin.datum}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="trajanje" >
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 85px;"> Trajanje </th>
+                  <td mat-cell *matCellDef="let element" style="padding-left: 85px;">{{element.trajanje}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="lekar">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 45px;"> Lekar </th>
+                  <td mat-cell *matCellDef="let element" style="padding-left: 45px;">{{element.lekar.user.firstname}} {{element.lekar.user.lastname}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="cena">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 85px;"> Cena </th>
+                  <td mat-cell *matCellDef="let element" style="padding-left: 85px;">{{element.cena}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="sala">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 85px;"> Sala </th>
+                  <td mat-cell *matCellDef="let element" style="padding-left: 85px;">{{element.sala.name}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="odjavi">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 85px;"> Odjavi Termin </th>
+                  <td mat-cell *matCellDef="let element" style="padding-left: 65px;"> <div matTooltip="Nazalost, rok za otkazivanje termina je prosao!" [matTooltipDisabled]="!provjeri(element.termin.datum)"> <button mat-button [disabled]="provjeri(element.termin.datum)"  (click)="odjaviPregled(element.id)" >Odjavi Pregled</button> </div> </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+          </table>
+
+      </mat-card-content>
+
+  </mat-card>
+
+</div>

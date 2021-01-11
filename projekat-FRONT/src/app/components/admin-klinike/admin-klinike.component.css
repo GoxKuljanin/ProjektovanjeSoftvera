@@ -1,0 +1,67 @@
+mat-toolbar{
+  text-align: right;
+  float: right;
+  background: #3F51B5;
+}
+
+.blackBG{
+  margin-top:0;
+  background:rgba(0, 0, 0, 0.39);
+  widows: 100%;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  min-height: 100vh;
+  height: 100%;
+  position: fixed;
+}
+.admin{
+  background:rgba(255, 0, 0, 0);
+  width:auto;
+  height: auto;
+  border:none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+mat-expansion-panel{
+  color:white;
+  background: rgba(255, 0, 0, 0);
+}
+mat-panel-title{
+  
+  color:white;
+}
+.sidemenu{
+  border:none;
+  padding-top: 20px;
+  background:#3F51B5;
+  border-radius: 0.675em;
+}
+mat-nav-list {
+  border-radius: 0.5em;
+  box-shadow: 1px solid black;
+  color:white;
+  width: 100%;
+  
+}
+a.sidemenu{
+  width:100%;
+  text-align: left;
+}
+a.logout{
+  width:100%;
+  text-align: right;
+}
+.admin-logo{
+  color:white;
+  font-size: 1.8em;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 50px;
+  text-decoration: none;
+}

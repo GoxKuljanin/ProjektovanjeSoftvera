@@ -1,0 +1,130 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+      <mat-card class="paper">
+            <mat-card-header>
+                  <mat-card-title style="font-size: 24px;">Zapocni Pregled</mat-card-title>
+            </mat-card-header>
+            <form class="form" #formControl="ngForm">
+                  <mat-card-content>
+                        <hr>
+                        <mat-expansion-panel>
+                              <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                          Pacijent:
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                          {{pacijent.user.firstname }} {{ pacijent.user.lastname}}
+                                    </mat-panel-description>
+                              </mat-expansion-panel-header>
+
+                              <mat-form-field>
+                                    <input matInput placeholder="First name">
+                              </mat-form-field>
+
+                              <mat-form-field>
+                                    <input matInput placeholder="Age">
+                              </mat-form-field>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                              <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                          Zdravstveni karton:
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                          Broj kartona: {{pacijent.zdravstveniKarton.id }}
+                                    </mat-panel-description>
+                              </mat-expansion-panel-header>
+                              <mat-grid-list cols="11" rowHeight="4:4">
+                                    <mat-grid-tile [colspan]="5" [rowspan]="1">
+                                          <mat-form-field class="full-width">
+                                                <input matInput placeholder="Dioptrija:"
+                                                      [(ngModel)]="pacijent.zdravstveniKarton.dioptrija"
+                                                      [ngModelOptions]="{standalone: true}" disabled>
+                                          </mat-form-field>
+                                    </mat-grid-tile>
+                                    <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+                                    <mat-grid-tile [colspan]="5" [rowspan]="1">
+                                          <mat-form-field class="full-width">
+                                                <input matInput placeholder="Alergija:"
+                                                      [(ngModel)]="pacijent.zdravstveniKarton.alergija"
+                                                      [ngModelOptions]="{standalone: true}" disabled>
+                                          </mat-form-field>
+                                    </mat-grid-tile>
+                                    <mat-grid-tile [colspan]="5" [rowspan]="1">
+                                          <mat-form-field class="full-width">
+                                                <input matInput placeholder="Visina:"
+                                                      [(ngModel)]="pacijent.zdravstveniKarton.visina"
+                                                      [ngModelOptions]="{standalone: true}" disabled>
+                                          </mat-form-field>
+                                    </mat-grid-tile>
+                                    <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+                                    <mat-grid-tile [colspan]="5" [rowspan]="1">
+                                          <mat-form-field class="full-width">
+                                                <input matInput placeholder="Tezina:"
+                                                      [(ngModel)]="pacijent.zdravstveniKarton.tezina"
+                                                      [ngModelOptions]="{standalone: true}" disabled>
+                                          </mat-form-field>
+                                    </mat-grid-tile>
+                                    <mat-grid-tile [colspan]="5" [rowspan]="1">
+                                          <mat-form-field class="full-width">
+                                                <input matInput placeholder="Krvna grupa:"
+                                                      [(ngModel)]="pacijent.zdravstveniKarton.krvnaGrupa"
+                                                      [ngModelOptions]="{standalone: true}" disabled>
+                                          </mat-form-field>
+                                    </mat-grid-tile>
+                              </mat-grid-list>
+                        </mat-expansion-panel>
+
+                        <!-- <p style="font-size: 18px;">Pregled:</p>
+                        <mat-form-field class="full-width">
+                              <input [(ngModel)]="datum" matInput [min]="startDate" [matDatepicker]="dp3" placeholder="Datum"  [ngModelOptions]="{standalone: true}" required disabled>
+                              <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                              <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                              <mat-label>Sala</mat-label>
+                              <mat-select [(value)]="selectedSala">
+                                    <mat-option *ngFor="let sala of sale" [value]="sala">{{sala.name}} {{sala.brojsale}}
+                                    </mat-option>
+                              </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                              <input matInput placeholder="Trajanje:" [(ngModel)]="izvestaj.pregled.trajanje"  [ngModelOptions]="{standalone: true}" required>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                              <input matInput placeholder="Dijagnoza:" [(ngModel)]="this.izvestaj.terapija"  [ngModelOptions]="{standalone: true}" required>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                              <input matInput placeholder="Terapija:" [(ngModel)]="dijagnoza.opisDijagnoze"  [ngModelOptions]="{standalone: true}" required>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                              <input matInput placeholder="Cena (din):" [(ngModel)]="pregled.cena"  [ngModelOptions]="{standalone: true}" required>
+                        </mat-form-field> -->
+                        <!--Zakazi sledeci pregled-->
+                        <mat-grid-list cols="4" rowHeight="3:1">
+                              <!--Potvrdi / odustani-->
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <a mat-stroked-button color="primary" (click)="openAddDialog()">Zakazi Sledeci
+                                          Pregled</a>
+                              </mat-grid-tile>
+                        </mat-grid-list>
+
+                        <mat-grid-list cols="4" rowHeight="2:1">
+                              <!--Potvrdi / odustani-->
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <button (click)="onSubmit()" mat-raised-button color="primary">Potvrdi</button>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <a mat-raised-button routerLink="/lekarHomePage/{{lekar}}/pacijenti"
+                                          routerLinkActive="active">Odustani</a>
+                              </mat-grid-tile>
+                        </mat-grid-list>
+                  </mat-card-content>
+            </form>
+      </mat-card>
+</div>

@@ -1,0 +1,59 @@
+<div *ngIf="flag==0" class="dialog" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Uredi profil</mat-card-title>
+        </mat-card-header>
+        <form class="form" #formControl="ngForm">
+            <mat-card-content>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Ime" [(ngModel)]="lekar.user.firstname" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Prezime" [(ngModel)]="lekar.user.lastname" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Specijalizacija" [(ngModel)]="lekar.specijalizacija" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Opis" [(ngModel)]="lekar.opis" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Email" [(ngModel)]="lekar.user.username" [ngModelOptions]="{standalone: true}" disabled>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Telefon" [(ngModel)]="lekar.user.phoneNumber" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Adresa" [(ngModel)]="lekar.user.adress" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Grad" [(ngModel)]="lekar.user.city" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Drzava" [(ngModel)]="lekar.user.country" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-button [type]="submit" (click)="updateLekar()" [disabled]="!formControl.valid">Sacuvaj</button>
+            <button mat-button (click)="cancel()">Odustani</button>
+        </form>
+    </mat-card>
+</div>
+<div *ngIf="flag==1" class="dialog" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>PromeniLozinku</mat-card-title>
+        </mat-card-header>
+        <form class="form" #formControl="ngForm">
+            <mat-card-content>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Nova lozinka:" type="password" [(ngModel)]="newPassword" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Ponovite novu lozinku:" type="password" [(ngModel)]="repeatNewPassword" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-button [type]="submit" (click)="updatePassword()" [disabled]="!formControl.valid">Sacuvaj</button>
+            <button mat-button (click)="cancel()">Odustani</button>
+        </form>
+    </mat-card>
+</div>

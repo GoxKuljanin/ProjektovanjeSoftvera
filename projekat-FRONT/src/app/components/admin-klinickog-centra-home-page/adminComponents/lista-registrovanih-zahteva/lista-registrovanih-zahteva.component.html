@@ -1,0 +1,35 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+
+  <mat-card class="paper">
+    <mat-card-header>
+      <mat-card-title style="font-size: 30px;">Spisak Zahteva Za Registraciju Pacijenata</mat-card-title>
+    </mat-card-header>
+    <table border="1" bgColor="#add8ed" style="margin-top:10px; margin-left:10px;">
+      <thead>
+        <th>Korisnik</th>
+        <th>E-mail</th>
+        <th>Prezime</th>
+        <th>Adresa</th>
+        <th>Grad</th>
+        <th>Drzava</th>
+        <th>Telefon</th>
+        <th>Prihvati / Odbij</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let modell of model">
+          <td>{{modell.firstname}}</td>
+          <td>{{modell.username}}</td>
+          <td>{{modell.lastname}}</td>
+          <td>{{modell.adress}}</td>
+          <td>{{modell.city}}</td>
+          <td>{{modell.country}}</td>
+          <td>{{modell.phoneNumber}}</td>
+          <td>
+            <button (click)="onPrihvati(modell)">Prihvati</button>
+            <button (click)="onOdbij(modell)">Odbij</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
+</div>

@@ -1,0 +1,30 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+  <div><a href="/" class="navlogo">Klinicki Centar</a></div>
+  <span class="nav-tool-items">
+    <a mat-button routerLink="/login" routerLinkActive="active">Prijavi se</a>
+    <a mat-button mat-raised-button routerLink="/register" routerLinkActive="active">Napravi nalog</a>
+  </span>
+</mat-toolbar>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" style="margin-top: -30px;">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Prijavi se</mat-card-title>
+    </mat-card-header>
+    <form class="form" (submit)="onSubmit()">
+      <mat-card-content>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Lozinka" type="password" [(ngModel)]="password"
+            [ngModelOptions]="{standalone: true}" required>
+        </mat-form-field>
+      </mat-card-content>
+      <span *ngIf="dataInvalid" style="font-size: 15px; position: relative; top: -15px; color: red;">Pogresan email ili
+        lozinka</span>
+      <button mat-stroked-button color="primary" class="btn-block" type="submit">Potvrdi</button>
+    </form>
+  </mat-card>
+</div>

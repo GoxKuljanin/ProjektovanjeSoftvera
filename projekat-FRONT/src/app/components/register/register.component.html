@@ -1,0 +1,63 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+  <div><a href="/" class="navlogo">Klinicki Centar</a></div>
+  <span class="nav-tool-items">
+    <a mat-button routerLink="/login" routerLinkActive="active">Prijavi se</a>
+    <a mat-button mat-raised-button routerLink="/register" routerLinkActive="active">Napravi nalog</a>
+  </span>
+</mat-toolbar>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box scrollable-content">
+      <mat-card-header>
+        <mat-card-title>Registracija</mat-card-title>
+      </mat-card-header>
+  
+      <form class="form" (submit)="onSubmit()">
+  
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Ime" [(ngModel)]="user.firstname" [ngModelOptions]="{standalone: true}" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Prezime" [(ngModel)]="user.lastname" [ngModelOptions]="{standalone: true}" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email" id="username" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.com" [(ngModel)]="user.username" #username="ngModel" [ngModelOptions]="{standalone: true}" required>
+          </mat-form-field>
+          <span *ngIf="username.errors?.required && username.touched" style="font-size: 10px; position: relative; top: -15px; color: red;">Email je obavezan</span>
+          <span *ngIf="username.errors?.pattern && username.touched" style="font-size: 10px; position: relative; top: -15px; color: red;">Email nije u pravoj formi</span>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Lozinka" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Potvrdi Lozinku" [(ngModel)]="repeatPassword" [ngModelOptions]="{standalone: true}" type="password" required>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Adresa" [(ngModel)]="user.adress" [ngModelOptions]="{standalone: true}" required>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Grad" [(ngModel)]="user.city" [ngModelOptions]="{standalone: true}" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Drzava" [(ngModel)]="user.country" [ngModelOptions]="{standalone: true}" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Broj" [(ngModel)]="user.phoneNumber" [ngModelOptions]="{standalone: true}" required>
+          </mat-form-field>
+  
+        </mat-card-content>
+  
+        <button mat-stroked-button color="primary" class="btn-block" type="submit">Potvrdi</button>
+  
+      </form>
+    </mat-card>
+  </div>

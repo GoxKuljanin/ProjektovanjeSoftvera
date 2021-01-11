@@ -1,0 +1,18 @@
+<fieldset class="rating">
+
+    <input type="radio" [name]="klinikaName" value="5" [checked]="ocenaKlinika===5" />
+    <label title="Super!" (click)="onClick(5)" >5 stars</label>
+
+    <input type="radio" [name]="klinikaName" value="4" [checked]="ocenaKlinika===4" />
+    <label title="Veoma Dobar!" (click)="onClick(4)" >4 stars</label>
+
+    <input type="radio" [name]="klinikaName" value="3" [checked]="ocenaKlinika===3" />
+    <label title="Dobar!" (click)="onClick(3)" >3 stars</label>
+
+    <input type="radio" [name]="klinikaName" value="2" [checked]="ocenaKlinika===2" />
+    <label title="Zadovoljavajuce!" (click)="onClick(2)" >2 stars</label>
+
+    <input type="radio" [name]="klinikaName" value="1" [checked]="ocenaKlinika===1" />
+    <label title="Lose!" (click)="onClick(1)" >1 stars</label>
+
+</fieldset>

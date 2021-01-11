@@ -1,0 +1,47 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+  <mat-card class="paper">
+    <mat-card-header>
+      <mat-grid-list cols="6" rowHeight="4:1">
+        <!-- Razmak -->
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+        </mat-grid-tile>
+        <!-- Naziv klinike -->
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-card-title style="font-size: 24px;">{{lekar.user.firstname}} {{lekar.user.lastname}}
+          </mat-card-title>
+        </mat-grid-tile>
+        <!-- Razmak -->
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+        </mat-grid-tile>
+        <!-- Edit icon-->
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <span class="nav-tool-items">
+            <a mat-button
+              (click)="openDialog()">
+              <i class="material-icons">edit</i>
+            </a>
+          </span>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group style="margin-top: 10px;margin-bottom: 50px;">
+        <!--Osnovni podaci o lekaru-->
+        <mat-tab label="O meni">
+          <p style="font-size: 18px;margin-top: 50px;">Specijalizacija: {{lekar.specijalizacija}}</p>
+          <p style="font-size: 18px;">Opis: {{lekar.opis}}</p>
+          <p style="font-size: 18px;">Adresa: {{lekar.user.adress}}</p>
+          <p style="font-size: 18px;">Grad: {{lekar.user.city}}</p>
+          <p style="font-size: 18px;">Drzava: {{lekar.user.country}}</p>
+          <p style="font-size: 18px;">Broj: {{lekar.user.phoneNumber}}</p>
+          <p style="font-size: 18px;">Email: {{lekar.user.username}}</p>
+        </mat-tab>
+      </mat-tab-group>
+      <hr>
+
+      <a style="float:right;" mat-flat-button (click)="openPasswordnDialog()" color="warn">
+        Promeni Lozinku
+      </a>
+    </mat-card-content>
+  </mat-card>
+</div>

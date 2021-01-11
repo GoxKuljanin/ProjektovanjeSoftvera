@@ -1,0 +1,9 @@
+.mat-list:hover{
+    background-color: #9eb7f0;
+}
+.mat-column-Ime{
+    min-width: 250px;
+}
+.mat-column-Adresa{
+    min-width: 350px;
+}

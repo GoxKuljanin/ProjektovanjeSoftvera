@@ -1,0 +1,50 @@
+<div *ngIf="firstLogin==false">
+        <mat-toolbar color="primary" class="app-header">
+                <div><a href="lekarHomePage" class="navlogo">Klinicki Centar</a></div>
+                <span class="nav-tool-items">
+                        <a mat-button routerLink="pacijenti" routerLinkActive="active">Pacijenti</a>
+                        <a mat-button routerLink="radniKalendar" routerLinkActive="active">Radni Kalendar</a>
+                        <a mat-button routerLink="noviZahtev" routerLinkActive="active">Novi Zahtev</a>
+                        <a mat-button routerLink="profil" routerLinkActive="active">Profil</a>
+                        <a mat-button mat-raised-button routerLinkActive="active" (click)="odjaviMe()">Odjavi Me</a>
+                </span>
+        </mat-toolbar>
+
+        <div style="padding:20px;margin-top:30px;">
+                <router-outlet></router-outlet>
+        </div>
+</div>
+<!-- Prvo logovanje -->
+<div *ngIf="firstLogin==true" class="blackBG">
+        <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top"
+                style="margin-top: 110px;margin-bottom: 0;">
+                <mat-card style="height: 35vh;">
+                        <mat-card-header>
+                                <mat-card-title style="font-size: 24px;">Postavi novu lozinku</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                                <hr>
+                                <form class="form">
+                                        <mat-card-content>
+                                                <mat-form-field class="full-width">
+                                                        <input matInput placeholder="Lozinka" [(ngModel)]="lozinka"
+                                                                [ngModelOptions]="{standalone: true}" type="password"
+                                                                required>
+                                                </mat-form-field>
+
+                                                <mat-form-field class="full-width">
+                                                        <input matInput placeholder="Potvrdi Lozinku"
+                                                                [(ngModel)]="potvrdiLozinku"
+                                                                [ngModelOptions]="{standalone: true}" type="password"
+                                                                required>
+                                                </mat-form-field>
+                                        </mat-card-content>
+                                        <div mat-dialog-actions>
+                                                <button [type]="submit" (click)="onSubmit()" mat-stroked-button
+                                                        color="primary" class="btn-block">Potvrdi</button>
+                                        </div>
+                                </form>
+                        </mat-card-content>
+                </mat-card>
+        </div>
+</div>

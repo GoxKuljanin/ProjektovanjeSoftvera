@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="app-header">
+    <div><a href="/" class="navlogo">Klinicki Centar</a></div>
+    <span class="nav-tool-items">
+      <a mat-button routerLink="listaRegistrovanihZahteva" routerLinkActive="active">Zahtevi</a>
+      <a mat-button routerLink="listaPacijenata" routerLinkActive="active">Lista Pacijenata</a>
+      <a mat-button routerLink="#" routerLinkActive="active">Uredjuj Klinike</a>
+      <a mat-button routerLink="#" routerLinkActive="active">Uredjuj Administratore Klinike</a>
+      <a mat-button mat-raised-button routerLink="" routerLinkActive="active">Odjavi Me</a>
+      
+      
+    </span>
+  </mat-toolbar>  
+
+
+<div style="padding:20px;margin-top:30px;">
+    <router-outlet></router-outlet>
+</div>
+
+
+

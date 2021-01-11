@@ -1,0 +1,88 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+  <mat-card class="paper">
+    <mat-card-header>
+      <mat-card-title style="font-size: 24px;">Lista sala</mat-card-title>
+    </mat-card-header>
+    <hr>
+    <mat-card-content>
+      <mat-grid-list cols="11" rowHeight="4:1">
+        <!-- Pretrazivanje pacijenata -->
+        <mat-grid-tile [colspan]="3" [rowspan]="2">
+          <mat-form-field>
+            <input matInput type="text" [(ngModel)]="search" placeholder="Search" (input)="Search()">
+          </mat-form-field>
+        </mat-grid-tile>
+        <!-- Filter grada -->
+        <mat-grid-tile [colspan]="3" [rowspan]="2">
+          <mat-form-field>
+            <mat-label>Naziv</mat-label>
+            <mat-select [(ngModel)]="selectedNaziv" (selectionChange)="FilterNazive()">
+              <mat-option *ngFor="let nazivSale of naziviSala" [value]="nazivSale">{{nazivSale}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <!-- Dodavanje sale -->
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="4">
+          <span class="nav-tool-items">
+            <a mat-button (click)="openAddDialog()">
+              <i class="material-icons">add</i>
+            </a>
+          </span>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <mat-nav-list>
+        <!--HEADER-->
+        <mat-grid-list cols="6" rowHeight="3:1">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <p>Naziv</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <p>Broj</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <p>Prvi Slobodan Termin</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <p>Slobodni Termini</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <p>Akcije</p>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <!--CONTENT-->
+        <mat-grid-list cols="6" rowHeight="3:1" *ngFor="let sala of listSource">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <p>{{ sala.name }}</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <p style="padding-left: 20px;">{{sala.brojsale}}</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <p>{{ sala.day }}.{{ sala.month }}.{{ sala.year }}</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <input style="opacity: 0;width: 10px;" [matDatepickerFilter]="myFilter" matInput [matDatepicker]="picker"
+              placeholder="">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker (opened)="streamOpened(sala.id)" touchUi [dateClass]="dateClass" #picker>asd
+            </mat-datepicker>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <span class="nav-tool-items">
+              <a mat-button (click)="openEditDialog(sala)">
+                <i class="material-icons">edit</i>
+              </a>
+            </span>
+            <span class="nav-tool-items">
+              <a mat-button (click)="openDeleteDialog(sala)">
+                <i class="material-icons">delete</i>
+              </a>
+            </span>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-nav-list>
+    </mat-card-content>
+  </mat-card>
+</div>

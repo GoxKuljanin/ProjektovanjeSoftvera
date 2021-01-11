@@ -1,0 +1,27 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+    <mat-card class="paper">
+      <mat-card-header>
+            <mat-card-title style="font-size: 24px;">Cenovnik</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+            <hr>
+            <mat-grid-list cols="5" rowHeight="3:1" >
+                  <mat-grid-tile  [colspan] = "1" [rowspan] = "1">
+                      <p >Usluga</p>
+                  </mat-grid-tile>
+                  <mat-grid-tile  [colspan] = "2" [rowspan] = "1">
+                        <p >Cena</p>
+                    </mat-grid-tile>
+              </mat-grid-list>
+              
+            <mat-grid-list cols="5" rowHeight="3:1" *ngFor="let cena of cene">
+                  <mat-grid-tile  [colspan] = "1" [rowspan] = "1">
+                      <p >{{ cena.opis }}</p>
+                  </mat-grid-tile>
+                  <mat-grid-tile  [colspan] = "2" [rowspan] = "1">
+                        <p >{{ cena.vrednost }}</p>
+                    </mat-grid-tile>
+              </mat-grid-list> 
+      </mat-card-content>
+    </mat-card>
+</div>

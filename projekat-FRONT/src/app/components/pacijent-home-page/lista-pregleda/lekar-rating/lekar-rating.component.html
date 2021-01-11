@@ -1,0 +1,18 @@
+<fieldset class="rating">
+
+    <input type="radio" [name]="inputName" value="5" [checked]="ocena===5" />
+    <label title="Super!" (click)="onClick(5)" >5 stars</label>
+
+    <input type="radio" [name]="inputName" value="4" [checked]="ocena===4" />
+    <label title="Veoma Dobar!" (click)="onClick(4)" >4 stars</label>
+
+    <input type="radio" [name]="inputName" value="3" [checked]="ocena===3" />
+    <label title="Dobar!" (click)="onClick(3)" >3 stars</label>
+
+    <input type="radio" [name]="inputName" value="2" [checked]="ocena===2" />
+    <label title="Zadovoljavajuce!" (click)="onClick(2)" >2 stars</label>
+
+    <input type="radio" [name]="inputName" value="1" [checked]="ocena===1" />
+    <label title="Lose!" (click)="onClick(1)" >1 stars</label>
+
+</fieldset>

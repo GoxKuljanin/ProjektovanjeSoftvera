@@ -1,0 +1,21 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+
+  <mat-card class="paper">
+    <table border="1" bgColor="#add8ed">
+      <thead>
+        <th>Zdravstveni Karton</th>
+        <th>Ime Pacijenta</th>
+        <th>Prezime Pacijenta</th>
+        <th>E-mail Pacijenta</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pacijent of pacijenti">
+          <td>{{pacijent.zdravstveniKarton.id}}</td>
+          <td>{{pacijent.user.firstname}}</td>
+          <td>{{pacijent.user.lastname}}</td>
+          <td>{{pacijent.user.username}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
+</div>

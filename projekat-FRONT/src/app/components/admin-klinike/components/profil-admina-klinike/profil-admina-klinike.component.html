@@ -1,0 +1,39 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+      <mat-card class="paper">
+            <mat-card-header>
+                  <mat-grid-list cols="6" rowHeight="4:3">
+                        <!-- Razmak -->
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                        </mat-grid-tile>
+                        <!-- Naziv klinike -->
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                              <mat-card-title style="font-size: 24px;">{{user.firstname}} {{user.lastname}}
+                              </mat-card-title>
+                        </mat-grid-tile>
+                        <!-- Razmak -->
+                        <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        </mat-grid-tile>
+                        <!-- Edit icon-->
+                        <mat-grid-tile [colspan]="1" [rowspan]="1">
+                              <span class="nav-tool-items">
+                                    <a mat-button
+                                          (click)="openDialog(user.id, user.firstname, user.lastname, user.adress, user.city, user.country, user.username, user.phoneNumber)">
+                                          <i class="material-icons">edit</i>
+                                    </a>
+                              </span>
+                        </mat-grid-tile>
+                  </mat-grid-list>
+            </mat-card-header>
+            <mat-card-content>
+                  <hr>
+                  <p style="font-size: 18px;margin-top: 50px;">Adresa: {{user.adress}}</p>
+                  <p style="font-size: 18px;">Grad: {{user.city}}</p>
+                  <p style="font-size: 18px;">Drzava: {{user.country}}</p>
+                  <p style="font-size: 18px;">Broj: {{user.phoneNumber}}</p>
+                  <p style="font-size: 18px;">Email: {{user.username}}</p>
+                  <a style="float:right;" mat-flat-button (click)="openPasswordnDialog(user.id)" color="warn">
+                        Promeni Lozinku
+                  </a>
+            </mat-card-content>
+      </mat-card>
+</div>

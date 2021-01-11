@@ -1,0 +1,56 @@
+
+<!-- <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+
+    <mat-card class="paper">
+      <mat-card-header>
+        <mat-card-title style="font-size: 30px;">Lista klinika</mat-card-title>
+      </mat-card-header>
+      <hr>
+      <mat-card-content>
+          <p style="font-size: 18px;">Prikaz svih klinik na platformi:</p>
+          <div style=" border-radius:16px;box-shadow: 0px 1px 3px #888888;">
+          <mat-list style="padding-left: 50px;border: 1px solid #ccc!important;border-radius:16px" role="list" *ngFor="let clinic of clinics">
+              <a style="text-decoration: none;" mat-list-item href="pacijentHomePage/clinic/{{clinic.id}}"> <p style="font-size: 17px;">{{ clinic.naziv }} </p></a>
+          </mat-list>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  
+  </div> -->
+
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+    <mat-card class="paper">
+      <mat-card-header>
+            <mat-card-title style="font-size: 24px;">Tabela Klinika</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <mat-form-field>
+              <input matInput type="text" [(ngModel)]="search" placeholder="Search" (input)="Search()">
+            </mat-form-field>
+            <hr>
+              <table mat-table (matSortChange)="sortData($event)" [dataSource]="sortedData" matSort class="mat-elevation-z2"> 
+                    
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="Ime" >
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Naziv </th>
+                      <td mat-cell *matCellDef="let element"><a style="text-decoration: none;" mat-list-item href="pacijentHomePage/clinic/{{element.id}}"> {{ element.naziv }}</a></td>
+                    </ng-container>
+                  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="Adresa" >
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 0px;" > Adresa </th>
+                      <td mat-cell *matCellDef="let element" style="padding-left: 0px;">{{element.adresa}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Ocena" >
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 0px;" > Prosecna Ocena Kilnike</th>
+                      <td mat-cell *matCellDef="let element" style="padding-left: 0px;"><app-lekar-rating [ocena]='element.ocenaklinike' [lekarId]='element.id'></app-lekar-rating> </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="collumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: collumns;"></tr>
+                    
+                  </table>
+      </mat-card-content>
+    </mat-card>
+</div>

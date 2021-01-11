@@ -1,0 +1,64 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+    <mat-card class="paper">
+        <mat-card-header>
+            <mat-card-title style="font-size: 24px;">Zahtevi</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <hr>
+            <!--HEADER-->
+            <mat-grid-list cols="7" rowHeight="3:1">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>Klinika</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>Lekar</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>Pacijent</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>Datum i Vreme</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>Tip</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>Cena</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>Akcije</p>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <!--CONTENT-->
+            <mat-grid-list cols="7" rowHeight="3:1" *ngFor="let zahtev of listSource">
+                
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>{{ zahtev.lekar.klinika.naziv}}</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>{{ zahtev.lekar.user.firstname}} {{ zahtev.lekar.user.lastname}}</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>{{ zahtev.pacijent.user.firstname}} {{ zahtev.pacijent.user.lastname}}</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>{{ zahtev.termin.datum}} {{ zahtev.termin.vreme}}</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>{{ zahtev.tippregleda.naziv}}</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <p>{{ zahtev.cena}}</p>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <span class="nav-tool-items">
+                          <a mat-button
+                                (click)="openDialog(zahtev)">
+                                <i class="material-icons">assignment</i>
+                          </a>
+                    </span>
+              </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card-content>
+    </mat-card>
+</div>

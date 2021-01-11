@@ -1,0 +1,20 @@
+<div class="dialog" fxLayout="row" fxLayoutAlign="center center" >
+    <mat-card class="box">
+        <mat-card-header>
+          <mat-card-title>Posaljite odgovor na odbijanje</mat-card-title>
+        </mat-card-header>
+            <form class="form" #formControl="ngForm">
+                
+                <mat-card-content>
+                
+                <mat-form-field class="full-width">
+                    <mat-label>Navedite razlog odbijanja</mat-label>
+                  <textarea class="example-full-width" matInput placeholder="Postovanje" [(ngModel)]="poruka" name="poruka"  required ></textarea>
+                </mat-form-field>
+
+                </mat-card-content>
+              <button mat-button [type]="submit" [mat-dialog-close]="1" (click)="posalji()" [disabled]="!formControl.valid">Posalji</button>
+              <button mat-button (click)="cancel()">Odustani</button>
+            </form>
+    </mat-card>
+  </div>

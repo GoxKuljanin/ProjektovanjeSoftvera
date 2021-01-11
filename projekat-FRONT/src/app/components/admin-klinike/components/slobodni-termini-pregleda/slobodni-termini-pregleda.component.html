@@ -1,0 +1,79 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+      <mat-card class="paper">
+            <mat-card-header>
+                  <mat-card-title style="font-size: 24px;">Slobodni termini pregleda</mat-card-title>
+            </mat-card-header>
+            <hr>
+            <mat-card-content>
+                  <mat-grid-list cols="11" rowHeight="4:1">
+                        <mat-grid-tile [colspan]="10" [rowspan]="2">
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="1" [rowspan]="4">
+                              <span class="nav-tool-items">
+                                    <a mat-button (click)="openAddDialog()">
+                                          <i class="material-icons">add</i>
+                                    </a>
+                              </span>
+                        </mat-grid-tile>
+                  </mat-grid-list>
+                  <mat-nav-list>
+                        <!--HEADER-->
+                        <mat-grid-list cols="6" rowHeight="3:1">
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p>Tip</p>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p>Trajanje</p>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p>Sala</p>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p>Lekar</p>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p>Termin</p>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p>Cena</p>
+                              </mat-grid-tile>
+                              <!-- <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p>Akcije</p>
+                              </mat-grid-tile> -->
+                        </mat-grid-list>
+                        <!--CONTENT-->
+                        <mat-grid-list cols="6" rowHeight="3:1" *ngFor="let pregled of pregledi">
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p> {{pregled.tippregleda.naziv}} </p>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p> {{pregled.trajanje}}</p>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p> {{pregled.sala.name}} {{pregled.sala.brojsale}}</p>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p> {{pregled.lekar.user.firstname}} {{pregled.lekar.user.lastname}}</p>
+                              </mat-grid-tile>
+                              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p> {{pregled.termin.datum}} {{pregled.termin.vreme}}</p>
+                              </mat-grid-tile><mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <p> {{pregled.cena}}</p>
+                              </mat-grid-tile>
+                              <!-- <mat-grid-tile [colspan]="1" [rowspan]="1">
+                                    <span class="nav-tool-items">
+                                          <a mat-button (click)="openEditDialog(sala)">
+                                                <i class="material-icons">edit</i>
+                                          </a>
+                                    </span>
+                                    <span class="nav-tool-items">
+                                          <a mat-button (click)="openDeleteDialog(sala)">
+                                                <i class="material-icons">delete</i>
+                                          </a>
+                                    </span>
+                              </mat-grid-tile> -->
+                        </mat-grid-list>
+                  </mat-nav-list>
+            </mat-card-content>
+      </mat-card>
+</div>

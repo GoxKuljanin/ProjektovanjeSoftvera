@@ -1,0 +1,28 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="paper scrollable-content">
+        <mat-card-header class="navb">
+            <div><h2 >{{pacijent.user.firstname}} {{pacijent.user.lastname}}</h2></div>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <mat-tab-group style="margin-top: 10px;margin-bottom: 50px;">
+              <!--Osnovni podaci o lekaru-->
+              <mat-tab label="O Pacijentu" >
+                    <p style="font-size: 18px;">Email:   {{pacijent.user.username}}</p>
+                    <p style="font-size: 18px;">Adresa:   {{pacijent.user.adress}}</p>
+                    <p style="font-size: 18px;">Grad:   {{pacijent.user.city}}</p>
+                    <p style="font-size: 18px;">Drzava:   {{pacijent.user.country}}</p>
+                    <p style="font-size: 18px;">Broj:   {{pacijent.user.phoneNumber}}</p>
+              </mat-tab>
+              <mat-tab label="Zdravstveni Karton" *ngIf="isPregledan==true">
+                    <p style="font-size: 18px;">{{pacijent.zdravstveniKarton.id}}</p>
+                    <p style="font-size: 18px;">{{pacijent.zdravstveniKarton.id}}</p>
+                    <p style="font-size: 18px;">{{pacijent.zdravstveniKarton.id}}</p>
+              </mat-tab>
+              </mat-tab-group>
+            
+        </mat-card-content>
+  
+        
+    </mat-card>
+</div>

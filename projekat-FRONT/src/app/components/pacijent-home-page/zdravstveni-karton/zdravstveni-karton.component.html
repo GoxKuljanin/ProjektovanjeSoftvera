@@ -1,0 +1,55 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;" *ngIf="ucitano">
+
+  <mat-card class="paper">
+      <mat-card-header>
+        <mat-card-title style="font-size: 30px;">Vas Zdravstveni Karton</mat-card-title>
+      </mat-card-header>
+      <hr>
+      <mat-card-content>
+          
+            <div class="div-karton">
+              <p style="font-size: 18px;">Dioptrija: {{karton.dioptrija}} </p>
+              <p style="font-size: 18px;">Visina: {{karton.visina}}</p>
+              <p style="font-size: 18px;">Tezina: {{karton.tezina}}</p>
+              <p style="font-size: 18px;">Krvna Grupa: {{karton.krvnaGrupa}}</p>
+              <p style="font-size: 18px;">Alergija: {{karton.alergija}}</p>
+            </div>
+
+            <hr>
+            <p style="font-size: 18px;">Detalji Zdravstvenih Kartona:</p>
+            
+            <div *ngIf="imaKarton">
+              <mat-accordion *ngFor="let izvestaj of karton.izvestaj" >
+              
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <p>Datum Pregleda: {{izvestaj.pregled.termin.datum}}</p>
+                      <p>Tip Pregleda: {{izvestaj.pregled.tippregleda.naziv}}</p>
+                    </mat-panel-title>
+                        <mat-panel-description>
+                          <p>Lekar: {{izvestaj.pregled.lekar.user.firstname}} {{izvestaj.pregled.lekar.user.lastname}}</p>
+                          <!-- Klinika: {{pregled.lekar.klinika.naziv}} -->
+                        </mat-panel-description>
+                  </mat-expansion-panel-header>
+  
+                            <!-- <li>Pregled: {{karton.pregled.datum}}</li> -->
+                            <li>Klinika: {{izvestaj.pregled.lekar.klinika.naziv}}</li>
+                            <li>Trajanje: {{izvestaj.pregled.trajanje}}</li>
+                            <li>Cena: {{izvestaj.pregled.cena}}</li>
+                            <li>Sala: {{izvestaj.pregled.sala.name}}</li>
+  
+                            <li *ngIf="izvestaj.dijagnoza">Dijagnoza: {{izvestaj.dijagnoza.naziv}}</li>
+                            <li *ngIf="izvestaj.terapija">Terapija: {{izvestaj.terapija}}</li>
+  
+  
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+          
+      </mat-card-content>
+    </mat-card>
+
+</div>
+    

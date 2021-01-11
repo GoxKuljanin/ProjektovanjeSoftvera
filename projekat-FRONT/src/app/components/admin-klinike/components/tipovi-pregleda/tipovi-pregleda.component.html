@@ -1,0 +1,64 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 110px;">
+  <mat-card class="paper">
+    <mat-card-header>
+      <mat-card-title style="font-size: 24px;">Lista tipova pregleda</mat-card-title>
+    </mat-card-header>
+    <hr>
+    <mat-card-content>
+      <mat-grid-list cols="13" rowHeight="3:1">
+        <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+        <!-- Pretrazivanje tipa pregleda -->
+        <mat-grid-tile [colspan]="5" [rowspan]="2">
+          <mat-form-field>
+            <input matInput type="text" [(ngModel)]="search" placeholder="Search" (input)="searchHandler()">
+          </mat-form-field>
+        </mat-grid-tile>
+        <!-- Splitter -->
+        <mat-grid-tile [colspan]="6" [rowspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="3">
+          <span class="nav-tool-items">
+            <a mat-button (click)="openAddDialog()">
+              <i class="material-icons">add</i>
+            </a>
+          </span>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <mat-nav-list>
+        <!--HEADER-->
+        <mat-grid-list cols="7" rowHeight="3:1">
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <p>Naziv</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <p>Opis</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <p>Akcije</p>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <hr>
+        <!--CONTENT-->
+        <mat-grid-list cols="7" rowHeight="3:1" *ngFor="let tipPregleda of listSource">
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <p>{{ tipPregleda.naziv }}</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <p style="padding-left: 20px;">{{tipPregleda.opis}}</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <span class="nav-tool-items">
+              <a mat-button (click)="openEditDialog(tipPregleda)">
+                <i class="material-icons">edit</i>
+              </a>
+            </span>
+            <span class="nav-tool-items">
+              <a mat-button (click)="openDeleteDialog(tipPregleda)">
+                <i class="material-icons">delete</i>
+              </a>
+            </span>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-nav-list>
+    </mat-card-content>
+  </mat-card>
+</div>
